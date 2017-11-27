@@ -1,13 +1,18 @@
 {
-  "name": "bot",
+  "name": "telegram-channel-dashboard",
   "version": "1.0.0",
   "main": "index.js",
   "author": "foreseaz",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.5",
     "telegraf": "^3.16.4"
   },
   "scripts": {
-
+    "start": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
   }
 }
