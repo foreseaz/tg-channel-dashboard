@@ -1,0 +1,13 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "foreseaz",
+  "license": "MIT",
+  "dependencies": {
+    "telegraf": "^3.16.4"
+  },
+  "scripts": {
+
+  }
+}
