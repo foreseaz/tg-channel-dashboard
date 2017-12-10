@@ -2,10 +2,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const MsgSchema = new Schema({
-  chat: Schema.Types.Mixed,
-  tags: [String],
   raw: Schema.Types.Mixed,
-  type: String,
+  message_id: Number,
+  username: String,
+  chat_id: Number,
+  tags: [String],
   created_date: {
     type: Date,
     default: Date.now
