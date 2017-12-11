@@ -1,0 +1,11 @@
+.menu {
+  margin: 0 auto;
+
+  ul {
+    display: flex;
+
+    li {
+      padding: 10px;
+    }
+  }
+}

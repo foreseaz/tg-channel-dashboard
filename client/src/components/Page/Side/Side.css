@@ -1,0 +1,10 @@
+.page-side {
+  width: 320px;
+
+  @media (--m-viewport) {
+    width: 270px;
+  }
+  @media (--s-viewport) {
+    width: 100%;
+  }
+}

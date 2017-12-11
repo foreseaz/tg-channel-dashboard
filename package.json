@@ -11,8 +11,8 @@
     "telegraf": "^3.16.4"
   },
   "scripts": {
-    "start": "nodemon src/server.js",
-    "serve": "pm2 startOrRestart pm2.config.js start src/server.js"
+    "start": "nodemon server.js",
+    "serve": "pm2 startOrRestart pm2.config.js start server.js"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"

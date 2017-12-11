@@ -6,7 +6,7 @@ module.exports = {
       script: './src/server.js',
       exec_mode: 'cluster',
       env: {
-        BOT_TOKEN: 'INSERT_YOUR_TOKEN_HERE',
+        // BOT_TOKEN: 'INSERT_YOUR_TOKEN_HERE',
         PORT: 8081
       },
       max_memory_restart: '300M',
