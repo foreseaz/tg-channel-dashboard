@@ -3,7 +3,7 @@ module.exports = {
     {
       name: 'tg',
       instances: 2,
-      script: './src/server.js',
+      script: './server.js',
       exec_mode: 'cluster',
       env: {
         // BOT_TOKEN: 'INSERT_YOUR_TOKEN_HERE',
