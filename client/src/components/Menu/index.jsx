@@ -5,11 +5,14 @@ import { Link } from 'react-router-dom'
 
 import styles from './Menu.css'
 
-const Menu = ({ list }) => (
+const Menu = ({ tags = [] }) => (
   <div className={styles.menu}>
+    <div className={styles.logo}>
+      <Link to='/'>TG</Link>
+    </div>
     <ul>
       {
-        list.map((link, idx) => (
+        tags.map((link, idx) => (
           <li key={idx}>
             <Link className={styles.Link} to={link.to}>
               {link.label}
@@ -22,7 +25,7 @@ const Menu = ({ list }) => (
 )
 
 Menu.propTypes = {
-  list: PropTypes.array.isRequired
+  tags: PropTypes.array
 }
 
 export default Menu

@@ -11,11 +11,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Menu
-          list={
-            [{ label: 'Home', to: '/' }, { label: 'About', to: '/about' }]
-          }
-        />
+        <Menu />
         <Switch>
           {routes.map((route, key) => (
             <Route

@@ -12,7 +12,7 @@ const utils = {
   'l-gutter': '20px',
   'l-breakpoint': `${L_BREAKPOINT}px`,
   'm-breakpoint': `${M_BREAKPOINT}px`,
-  'headerHeight': '110px'
+  'headerHeight': '60px'
 }
 exports.utils = utils
 

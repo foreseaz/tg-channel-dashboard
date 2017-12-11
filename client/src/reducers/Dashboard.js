@@ -1,7 +1,7 @@
 import * as ACTION_TYPES from '~/actions/types'
 
 const initialState = {
-  msgs: {}
+  msgs: []
 }
 
 export default (state = initialState, action) => {

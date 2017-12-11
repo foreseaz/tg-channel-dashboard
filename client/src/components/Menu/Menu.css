@@ -1,5 +1,17 @@
 .menu {
   margin: 0 auto;
+  height: 60px;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+  font-family: apercubold, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+
+  .logo {
+    a {
+      color: var(--fontColor);
+    }
+    padding: 15px;
+  }
 
   ul {
     display: flex;

@@ -1,7 +1,7 @@
 @import 'styles/mixins.css';
 
 .container {
-  margin-top: var(--headerHeight) !important;
+  /*margin-top: var(--headerHeight) !important;*/
   flex-wrap: wrap;
   width: 100%;
   padding: 40px var(--l-gutter);
