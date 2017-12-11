@@ -60,7 +60,6 @@ typings/
 # misc
 notes.md
 .DS_Store
-build
 #### joe made this: https://goel.io/joe
 
 #####=== Vim ===#####
@@ -71,7 +70,3 @@ Session.vim
 .netrwhist
 *~
 
-
-# build folder
-build
-build-server
