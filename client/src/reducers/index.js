@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import user from './User'
+import dashboard from './Dashboard'
 
 export default combineReducers({
-  user
+  dashboard
 })

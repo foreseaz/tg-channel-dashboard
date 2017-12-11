@@ -13,7 +13,7 @@ const initBot = () => {
     return true
   })
 
-  bot.on(['message', 'channel_post'], (ctx) => {
+  bot.on(['channel_post'], (ctx) => {
     if (ctx.channelPost) {
       console.log(ctx.channelPost)
       try {
@@ -24,7 +24,8 @@ const initBot = () => {
     }
   })
 
-  bot.on(['message', 'edited_channel_post'], (ctx) => {
+  bot.on(['edited_channel_post'], (ctx) => {
+    console.log('hear edited', ctx)
     if (ctx.update) {
       console.log(ctx.update)
       const { update } = ctx

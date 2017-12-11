@@ -2,7 +2,7 @@ import * as React from 'react'
 import Logo from '~/assets/icons/logo.svg'
 
 import { connect } from 'react-redux'
-import * as UserAction from '~/actions/User'
+import { getMsgs } from '~/actions/Dashboard'
 
 import t from '~/utils/locales'
 
@@ -14,7 +14,7 @@ import '~/styles/global/global.css'
 
 class Home extends React.Component {
   componentDidMount () {
-    this.props.getUser('foreseaz')
+    this.props.getMsgs()
   }
 
   render () {
@@ -30,9 +30,8 @@ class Home extends React.Component {
           <LocaleToggler />
         </Page.Row>
         <Page.Main>
-          <p className='global-without-hash'>This is text with global css</p>
           <pre>
-            {JSON.stringify(this.props.user, null, 2)}
+            {JSON.stringify(this.props.dashboard, null, 2)}
           </pre>
         </Page.Main>
         <Page.Side>
@@ -52,10 +51,10 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  dashboard: state.dashboard
 })
 const mapDispatchToProps = {
-  ...UserAction
+  getMsgs
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

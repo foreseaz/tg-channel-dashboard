@@ -39,19 +39,23 @@ const update_a_msg = ({ edited_channel_post: data }) => {
   console.log('-------------update post', data)
   Msg.findOne({ message_id: data.message_id }, (err, msg) => {
     console.log('found', msg)
-    const chat = _.get(data, 'chat', {})
-    const text = _.get(data, 'text', '')
+    if (msg) {
+      const chat = _.get(data, 'chat', {})
+      const text = _.get(data, 'text', '')
 
-    msg.tags = ctlHelper.extraTags(text)
-    msg.raw = data
-    msg.username = chat.username
-    msg.chat_id = chat.id
+      msg.tags = ctlHelper.extraTags(text)
+      msg.raw = data
+      msg.username = chat.username
+      msg.chat_id = chat.id
 
-    msg.save((e, msg) => {
-      if (e) {
-        throw(e)
-      }
-    })
+      msg.save((e, msg) => {
+        if (e) {
+          throw(e)
+        }
+      })
+    } else {
+      throw('found null')
+    }
   })
 }
 

@@ -1,15 +1,15 @@
 import _fetch from './_fetch'
 
 export default {
-  Info: {
-    get (id) {
+  Msgs: {
+    get () {
       return _fetch({
         method: 'GET',
         api: {
-          service: 'users',
-          version: ''
+          service: 'api',
+          version: 'v1'
         },
-        path: `${id}`
+        path: `/msgs`
       })
     }
   }

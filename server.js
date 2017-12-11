@@ -1,6 +1,7 @@
 var express = require('express'),
   app = express(),
   port = process.env.PORT || 8081,
+  cors = require('cors'),
   mongoose = require('mongoose'),
   bodyParser = require('body-parser'),
   Msg = require('./api/models/msgModel'),
@@ -10,6 +11,10 @@ var express = require('express'),
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/TelegramChannelDB')
+
+// allow cors
+app.use(cors())
+app.options('*', cors())
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())

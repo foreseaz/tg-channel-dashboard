@@ -61,8 +61,6 @@ export default ({
     .then(checkStatus)
     .then(parseResponse)
     .catch((err) => {
-      return err.json().then(errJson => {
-        throw errJson
-      })
+      throw err
     })
 }
