@@ -1,6 +1,6 @@
 var express = require('express'),
   app = express(),
-  port = process.env.PORT || 3000,
+  port = process.env.PORT || 8081,
   mongoose = require('mongoose'),
   bodyParser = require('body-parser'),
   Msg = require('./api/models/msgModel'),
@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost/TelegramChannelDB')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(express.static('client/public'))
+app.use(express.static('client/build'))
 
 routes(app) // register routes
 

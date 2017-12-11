@@ -11,6 +11,7 @@
     "telegraf": "^3.16.4"
   },
   "scripts": {
+    "dev:client": "node client/scripts/start.js",
     "start": "nodemon server.js",
     "serve": "pm2 startOrRestart pm2.config.js start server.js"
   },
