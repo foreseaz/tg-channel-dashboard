@@ -14,7 +14,8 @@
   "scripts": {
     "dev:client": "node client/scripts/start.js",
     "start": "nodemon server.js",
-    "serve": "pm2 startOrRestart pm2.config.js start server.js"
+    "serve:pm2": "pm2 startOrRestart pm2.config.js start server.js",
+    "serve:simple": "nohup node server.js &"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
