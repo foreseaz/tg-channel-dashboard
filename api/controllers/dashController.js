@@ -9,7 +9,8 @@ const list_all_msgs = (req, res) => {
     if (err) {
       res.send(err)
     }
-    res.json(msgs)
+    const withoutDeletedMsgs = _.filter(msgs, msg => { return !_.includes(msg.tags, 'deleted') })
+    res.json(withoutDeletedMsgs)
   })
 }
 
