@@ -33,8 +33,10 @@ const create_a_msg = async (data) => {
     // previews
     const url = ctlHelper.extraUrl(text)
     new_msg.preview.url = url
-    new_msg.preview.mercury = await ctlHelper.preparePreviewMercury(url)
-    new_msg.preview.mark = await ctlHelper.preparePreviewMark(url)
+    if (url) {
+      new_msg.preview.mercury = await ctlHelper.preparePreviewMercury(url)
+      new_msg.preview.mark = await ctlHelper.preparePreviewMark(url)
+    }
 
     new_msg.save((e, msg) => {
       if (e) {
@@ -49,26 +51,37 @@ const create_a_msg = async (data) => {
 const update_a_msg = ({ edited_channel_post: data }) => {
   console.log('---------------------------')
   console.log('-------------update post', data)
-  Msg.findOne({ message_id: data.message_id }, (err, msg) => {
-    console.log('found', msg)
-    if (msg) {
-      const chat = _.get(data, 'chat', {})
-      const text = _.get(data, 'text', '')
 
-      msg.tags = ctlHelper.extraTags(text)
-      msg.raw = data
-      msg.username = chat.username
-      msg.chat_id = chat.id
+  try {
+    Msg.findOne({ message_id: data.message_id }, async (err, old_msg) => {
+      console.log('found', old_msg)
+      if (old_msg) {
+        const chat = _.get(data, 'chat', {})
+        const text = _.get(data, 'text', '')
 
-      msg.save((e, msg) => {
-        if (e) {
-          throw(e)
+        old_msg.tags = ctlHelper.extraTags(text)
+        old_msg.raw = data
+        old_msg.username = chat.username
+        old_msg.chat_id = chat.id
+
+        // previews
+        const url = ctlHelper.extraUrl(text)
+        old_msg.preview.url = url
+        if (url) {
+          old_msg.preview.mercury = await ctlHelper.preparePreviewMercury(url)
+          old_msg.preview.mark = await ctlHelper.preparePreviewMark(url)
         }
-      })
-    } else {
-      throw('found null')
-    }
-  })
+
+        old_msg.save((e, old_msg) => {
+          if (e) {
+            throw(e)
+          }
+        })
+      }
+    })
+  } catch (e) {
+    throw(e)
+  }
 }
 
 exports.list_all_msgs = list_all_msgs
