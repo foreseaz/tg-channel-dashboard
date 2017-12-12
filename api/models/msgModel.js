@@ -9,8 +9,8 @@ const MsgSchema = new Schema({
   tags: [String],
   preview: {
     url: String,
-    markdown: String,
-    json: Schema.Types.Mixed
+    mark: Schema.Types.Mixed,
+    mercury: Schema.Types.Mixed
   },
   created_date: {
     type: Date,

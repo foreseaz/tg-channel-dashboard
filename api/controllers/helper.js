@@ -1,4 +1,5 @@
 const getUrls = require('get-urls')
+const cleanMark = require('clean-mark')
 const nodeMercuryParser = require('node-mercury-parser')
 nodeMercuryParser.init('Skeosh2Uy3TeMxKeURfJKLxqN68suE3Wy9CVm3wf')
 
@@ -16,10 +17,15 @@ const extraUrl = (text) => {
   return !!urlArr[0] ? urlArr[0] : ''
 }
 
-const preparePreview = (url) => {
+const preparePreviewMercury = (url) => {
   return nodeMercuryParser.get(url)
+}
+
+const preparePreviewMark = async (url) => {
+  return cleanMark(url, {})
 }
 
 exports.extraTags = extraTags
 exports.extraUrl = extraUrl
-exports.preparePreview = preparePreview
+exports.preparePreviewMercury = preparePreviewMercury
+exports.preparePreviewMark = preparePreviewMark

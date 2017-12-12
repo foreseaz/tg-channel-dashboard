@@ -5,6 +5,7 @@
   "author": "foreseaz",
   "license": "MIT",
   "dependencies": {
+    "clean-mark": "^0.4.3",
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "get-urls": "^7.2.0",

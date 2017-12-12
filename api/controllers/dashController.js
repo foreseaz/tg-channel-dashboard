@@ -33,7 +33,8 @@ const create_a_msg = async (data) => {
     // previews
     const url = ctlHelper.extraUrl(text)
     new_msg.preview.url = url
-    new_msg.preview.json = await ctlHelper.preparePreview(url)
+    new_msg.preview.mercury = await ctlHelper.preparePreviewMercury(url)
+    new_msg.preview.mark = await ctlHelper.preparePreviewMark(url)
 
     new_msg.save((e, msg) => {
       if (e) {
