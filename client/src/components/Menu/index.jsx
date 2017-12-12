@@ -8,7 +8,7 @@ import styles from './Menu.css'
 const Menu = ({ tags = [] }) => (
   <div className={styles.menu}>
     <div className={styles.logo}>
-      <Link to='/'>TG</Link>
+      <Link to='/'>T.</Link>
     </div>
     <ul>
       {

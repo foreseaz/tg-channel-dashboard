@@ -7,6 +7,11 @@ const MsgSchema = new Schema({
   username: String,
   chat_id: Number,
   tags: [String],
+  preview: {
+    url: String,
+    markdown: String,
+    json: Schema.Types.Mixed
+  },
   created_date: {
     type: Date,
     default: Date.now

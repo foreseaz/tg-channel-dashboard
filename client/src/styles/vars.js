@@ -17,19 +17,20 @@ const utils = {
 exports.utils = utils
 
 const colors = {
-  mainColor: '#1050B0',
+  mainColor: '#08109f',
   fontColor: '#4A4A4A',
+  fontSelected: '#ff4d46',
 
-  linkColor: '#1050B0',
+  linkColor: '#08109f',
   linkHoverColor: '#0084FB',
 
-  buttonColor: '#1050B0',
+  buttonColor: '#08109f',
   buttonHoverColor: '#195BBF',
   actionColor: '#F5A623',
   actionHoverColor: '#FEBD52',
 
   dark: '#4A4A4A',
-  blue: '#1050B0',
+  blue: '#08109f',
   grey: '#BCBEBC',
   red: '#DB4437',
   green: '#25A42F'

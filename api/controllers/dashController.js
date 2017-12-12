@@ -13,25 +13,36 @@ const list_all_msgs = (req, res) => {
   })
 }
 
-const create_a_msg = (data) => {
+const create_a_msg = async (data) => {
   console.log('---------------------------')
   console.log('-------------incoming post', data)
-  const chat = _.get(data, 'chat', {})
-  const text = _.get(data, 'text', '')
-  const tags = ctlHelper.extraTags(text)
 
-  const new_msg = new Msg()
-  new_msg.tags = tags
-  new_msg.raw = data
-  new_msg.message_id = data.message_id
-  new_msg.username = chat.username
-  new_msg.chat_id = chat.id
+  try {
+    const new_msg = new Msg()
+    new_msg.raw = data
+    new_msg.message_id = data.message_id
 
-  new_msg.save((e, msg) => {
-    if (e) {
-      throw(e)
-    }
-  })
+    const chat = _.get(data, 'chat', {})
+    new_msg.username = chat.username
+    new_msg.chat_id = chat.id
+
+    const text = _.get(data, 'text', '')
+    const tags = ctlHelper.extraTags(text)
+    new_msg.tags = tags
+
+    // previews
+    const url = ctlHelper.extraUrl(text)
+    new_msg.preview.url = url
+    new_msg.preview.json = await ctlHelper.preparePreview(url)
+
+    new_msg.save((e, msg) => {
+      if (e) {
+        throw(e)
+      }
+    })
+  } catch (e) {
+    throw(e)
+  }
 }
 
 const update_a_msg = ({ edited_channel_post: data }) => {
