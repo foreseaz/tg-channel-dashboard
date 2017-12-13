@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "autolinker": "^1.6.0",
     "classnames": "^2.2.5",
     "cssrecipes-defaults": "^0.5.0",
     "date-fns": "^1.29.0",

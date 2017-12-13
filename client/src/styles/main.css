@@ -23,7 +23,7 @@ body {
 }
 ::selection {
   outline: none;
-  background: #ff1919;
+  background: #fcc3c6;
 }
 
 /* form control */

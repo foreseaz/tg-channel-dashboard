@@ -3,9 +3,3 @@
   flex-wrap: wrap;
   margin: 20px;
 }
-
-.card {
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid var(--blue);
-}

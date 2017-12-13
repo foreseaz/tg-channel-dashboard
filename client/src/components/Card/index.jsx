@@ -4,9 +4,7 @@ import styles from './Card.css'
 
 const Card = ({ text, tags }) => (
   <div className={styles.card}>
-    <div className={styles.main}>
-      {text}
-    </div>
+    <div className={styles.main} dangerouslySetInnerHTML={{__html: text}} />
     <ul className={styles.tags}>
       {tags && tags.map((tag, idx) => (
         <li key={idx}><a href='/'>{tag}</a></li>

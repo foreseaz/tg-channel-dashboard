@@ -1,14 +1,31 @@
 .card {
+  position: relative;
   max-width: 320px;
   background: white;
+  margin: 10px;
+  padding: 10px 10px 30px;
+  border: 1px solid var(--blue);
+  word-break: break-all;
 
   .main {
     font-size: 16px;
-    font-family: var(--consoleFont);
+
+    a {
+      font-family: var(--consoleFont);
+      font-size: 12px;
+    }
   }
   .tags {
+    position: absolute;
+    display: flex;
+    bottom: 5px;
+    right: 5px;
     font-size: 11px;
     font-family: var(--consoleFont);
     color: var(--mainColor);
+
+    li {
+      padding: 0 5px;
+    }
   }
 }
