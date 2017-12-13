@@ -1,0 +1,14 @@
+.card {
+  max-width: 320px;
+  background: white;
+
+  .main {
+    font-size: 16px;
+    font-family: var(--consoleFont);
+  }
+  .tags {
+    font-size: 11px;
+    font-family: var(--consoleFont);
+    color: var(--mainColor);
+  }
+}
