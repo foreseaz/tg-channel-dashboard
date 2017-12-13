@@ -1,0 +1,15 @@
+.wrapper {
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+
+  line-height: 2;
+  font-size: 11px;
+  font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace;
+  color: var(--mainColor);
+
+  .intro {
+    margin-left: 5px;
+  }
+}

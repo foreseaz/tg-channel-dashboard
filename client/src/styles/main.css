@@ -7,7 +7,7 @@ html, body {
 }
 
 body {
-  background: #fefefd;
+  background: #fffbf7;
 
   color: var(--dark);
   line-height: 1.57;
@@ -20,6 +20,10 @@ body {
   text-rendering: optimizeSpeed;
 
   /*user-select: none;*/
+}
+::selection {
+  outline: none;
+  background: #ff1919;
 }
 
 /* form control */

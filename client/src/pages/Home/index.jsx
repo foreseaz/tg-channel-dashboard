@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { getMsgs } from '~/actions/Dashboard'
 
 // import t from '~/utils/locales'
-
-import Page from '~/components/Page'
+import Msgs from './Msgs'
+import Side from './Side'
 
 import styles from './Home.css'
 import '~/styles/global/global.css'
@@ -16,20 +16,12 @@ class Home extends React.Component {
   }
 
   render () {
-    const { dashboard } = this.props
+    const { dashboard: { msgs } } = this.props
     return (
-      <Page>
-        <Page.Main>
-          {dashboard.msgs && dashboard.msgs.map((msg, idx) => (
-            <div key={idx} className={styles.card}>
-              <div>tags: {msg.tags}</div>
-              <div>{msg.raw.text}</div>
-            </div>
-          ))}
-        </Page.Main>
-        <Page.Side>
-        </Page.Side>
-      </Page>
+      <main className={styles.container}>
+        {Msgs({ msgs })}
+        {Side({ msgs })}
+      </main>
     )
   }
 }
