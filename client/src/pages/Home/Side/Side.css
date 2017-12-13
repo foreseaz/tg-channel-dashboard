@@ -6,7 +6,7 @@
 
   line-height: 2;
   font-size: 11px;
-  font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace;
+  font-family: var(--consoleFont);
   color: var(--mainColor);
 
   .intro {
