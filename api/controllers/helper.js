@@ -6,7 +6,7 @@ nodeMercuryParser.init('Skeosh2Uy3TeMxKeURfJKLxqN68suE3Wy9CVm3wf')
 const extraTags = (text) => {
   if (!text) return text
   const extractedTags = text.match(/\[(.*?)\]/g) // ['[Design]', '[Code]', ...]
-  const tags = extractedTags && extractedTags.map(t => t.replace(/[^\w]/g, '').toLowerCase()) // ['design', 'code', ...]
+  const tags = extractedTags && extractedTags.map(t => t.replace(/[\[ | \]]/g, '').toLowerCase()) // ['design', 'code', ...]
   return tags.length > 0 ? tags : ['untagged']
 }
 
