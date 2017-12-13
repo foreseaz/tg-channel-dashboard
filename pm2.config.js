@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'tg',
-      instances: 2,
+      instances: 1,
       script: './server.js',
       exec_mode: 'cluster',
       env: {
