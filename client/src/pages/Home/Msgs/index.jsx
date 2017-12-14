@@ -1,5 +1,6 @@
 import React from 'react'
 import Autolinker from 'autolinker'
+import _get from 'lodash/get'
 
 import Card from '~/components/Card'
 import styles from './Msgs.css'
@@ -18,6 +19,7 @@ const Msgs = ({ msgs }) => (
         key={idx}
         createdDate={msg.created_date}
         text={getCleanText(msg.raw.text)}
+        img={_get(msg, ['preview', 'mercury', 'lead_image_url'], '')}
         tags={msg.tags}
       />
     ))}
