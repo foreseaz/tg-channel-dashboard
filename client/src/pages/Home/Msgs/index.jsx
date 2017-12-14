@@ -14,7 +14,12 @@ const getCleanText = (text) => {
 const Msgs = ({ msgs }) => (
   <div className={styles.wrapper}>
     {msgs && msgs.map((msg, idx) => (
-      <Card key={idx} text={getCleanText(msg.raw.text)} tags={msg.tags} />
+      <Card
+        key={idx}
+        createdDate={msg.created_date}
+        text={getCleanText(msg.raw.text)}
+        tags={msg.tags}
+      />
     ))}
   </div>
 )

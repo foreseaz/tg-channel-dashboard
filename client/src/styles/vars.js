@@ -3,8 +3,8 @@ const L_BREAKPOINT = 1020
 exports.breakpoints = { M_BREAKPOINT, L_BREAKPOINT }
 
 const fonts = {
-  sansFont: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Droid Sans", "Helvetica Neue", "PingFang HK", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif',
-  consoleFont: '"Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace'
+  sansFont: '-apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Droid Sans", "Helvetica Neue", "PingFang HK", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif',
+  consoleFont: '"monostena", "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace'
 }
 exports.fonts = fonts
 

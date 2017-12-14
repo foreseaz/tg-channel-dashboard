@@ -6,14 +6,18 @@
   padding: 10px 10px 30px;
   border: 1px solid var(--blue);
   word-break: break-all;
+  font-weight: 300;
 
+  a {
+    font-family: var(--consoleFont);
+    font-weight: 400;
+    font-size: 12px;
+  }
+
+  .breadcrumbs {
+  }
   .main {
     font-size: 16px;
-
-    a {
-      font-family: var(--consoleFont);
-      font-size: 12px;
-    }
   }
   .tags {
     position: absolute;
@@ -23,6 +27,7 @@
     font-size: 11px;
     font-family: var(--consoleFont);
     color: var(--mainColor);
+    text-transform: uppercase;
 
     li {
       padding: 0 5px;
