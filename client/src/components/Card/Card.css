@@ -24,8 +24,12 @@
     right: -10px;
     width: 60%;
     max-width: 300px;
-    opacity: .3;
+    opacity: .5;
     pointer-events: none;
+
+    img {
+      width: 100%;
+    }
   }
 
   .breadcrumbs {
