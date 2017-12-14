@@ -3,21 +3,26 @@
   max-width: 320px;
   background: white;
   margin: 10px;
-  padding: 10px 10px 30px;
-  border: 1px solid var(--blue);
+  padding: 15px 15px 30px;
+  /*border: 1px solid var(--blue);*/
   word-break: break-all;
-  font-weight: 300;
 
   a {
     font-family: var(--consoleFont);
     font-weight: 400;
     font-size: 12px;
+    text-decoration: underline;
   }
 
   .breadcrumbs {
   }
   .main {
+    padding: 10px;
     font-size: 16px;
+    a {
+      color: var(--actionColor);
+      text-decoration: none;
+    }
   }
   .tags {
     position: absolute;
@@ -27,7 +32,6 @@
     font-size: 11px;
     font-family: var(--consoleFont);
     color: var(--mainColor);
-    text-transform: uppercase;
 
     li {
       padding: 0 5px;

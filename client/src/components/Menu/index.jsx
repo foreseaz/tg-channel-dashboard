@@ -2,13 +2,14 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
+import Logo from '~/assets/icons/logo.svg'
 
 import styles from './Menu.css'
 
 const Menu = ({ tags = [] }) => (
   <div className={styles.menu}>
     <div className={styles.logo}>
-      <Link to='/'>T.</Link>
+      <Link to='/'><Logo /></Link>
     </div>
     <ul>
       {
