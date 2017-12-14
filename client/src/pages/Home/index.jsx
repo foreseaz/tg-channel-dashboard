@@ -1,4 +1,5 @@
 import * as React from 'react'
+import _orderBy from 'lodash/orderBy'
 
 import { connect } from 'react-redux'
 import { getMsgs } from '~/actions/Dashboard'
@@ -16,7 +17,7 @@ class Home extends React.Component {
   }
 
   render () {
-    const { dashboard: { msgs } } = this.props
+    const { msgs } = this.props
     return (
       <main className={styles.container}>
         {Msgs({ msgs })}
@@ -27,7 +28,8 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  dashboard: state.dashboard
+  // msgs: state.dashboard.msgs,
+  msgs: _orderBy(state.dashboard.msgs, ['created_date'], ['desc'])
 })
 const mapDispatchToProps = {
   getMsgs
