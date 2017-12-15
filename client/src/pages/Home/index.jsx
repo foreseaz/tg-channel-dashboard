@@ -5,8 +5,9 @@ import { connect } from 'react-redux'
 import { getMsgs } from '~/actions/Dashboard'
 
 // import t from '~/utils/locales'
+import Logo from '~/assets/icons/logo.svg'
+import Page from '~/components/Page'
 import Msgs from './Msgs'
-import Side from './Side'
 
 import styles from './Home.css'
 import '~/styles/global/global.css'
@@ -19,10 +20,15 @@ class Home extends React.Component {
   render () {
     const { msgs } = this.props
     return (
-      <main className={styles.container}>
+      <Page className={styles.container}>
+        <div className={styles.logo}><Logo /></div>
+        <h2 className={styles.intro}>
+          T. is a minimalistic tool <br />
+          for thoughts collection and management, <br />
+          based on handy Telegram Channel.
+        </h2>
         {Msgs({ msgs })}
-        {Side({ msgs })}
-      </main>
+      </Page>
     )
   }
 }

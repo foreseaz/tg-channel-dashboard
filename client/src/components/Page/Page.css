@@ -8,7 +8,7 @@
   margin: 0 auto;
 
   @mixin responsive;
-  @media (--m-viewport) {
+  @media (--m) {
     padding: 40px var(--gutter);
   }
 }

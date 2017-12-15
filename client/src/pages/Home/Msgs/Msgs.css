@@ -1,9 +1,9 @@
 .wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px;
+  font-family: var(--textFont);
 
-  @media(--s-viewport) {
+  @media(--s) {
     width: 100%;
   }
 }

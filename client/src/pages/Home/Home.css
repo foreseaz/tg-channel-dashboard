@@ -1,3 +1,22 @@
 .container {
+  position: relative;
   display: flex;
+}
+.logo {
+  position: fixed;
+  top: 60px;
+  left: 60px;
+  @media(--s) {
+    top: 30px;
+    left: 30px;
+  }
+}
+.intro {
+  font-size: 32px;
+  font-family: var(--titleFont);
+  margin: 80px 15px 30px;
+  @media(--s) {
+    font-size: 28px;
+    margin: 80px 20px 30px;
+  }
 }

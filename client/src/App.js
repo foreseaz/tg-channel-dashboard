@@ -3,15 +3,12 @@ import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import routes from '~/routes'
 
-import Menu from '~/components/Menu'
-
 import './styles/main.css'
 
 class App extends React.Component {
   render () {
     return (
       <div>
-        <Menu />
         <Switch>
           {routes.map((route, key) => (
             <Route

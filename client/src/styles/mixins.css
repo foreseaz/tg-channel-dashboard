@@ -2,11 +2,11 @@
 @define-mixin responsive {
   max-width: var(--l-breakpoint);
 
-  @media (--m-viewport) {
+  @media (--m) {
     max-width: var(--m-breakpoint);
   }
 
-  @media (--s-viewport) {
+  @media (--s) {
     max-width: 100%;
   }
 }

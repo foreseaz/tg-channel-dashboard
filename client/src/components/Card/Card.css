@@ -1,13 +1,13 @@
 .card {
   position: relative;
-  max-width: 320px;
+  width: 320px;
   background: white;
   margin: 20px;
   padding: 15px 15px 30px;
   /*border: 1px solid var(--blue);*/
   word-break: break-all;
 
-  @media(--s-viewport) {
+  @media(--s) {
     max-width: 100%;
     width: 100%;
   }
