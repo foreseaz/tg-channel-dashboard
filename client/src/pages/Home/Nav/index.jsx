@@ -2,6 +2,8 @@ import React from 'react'
 import classnames from 'classnames/bind'
 import ClickOutside from 'react-click-outside'
 
+import ToggleButton from '~/components/ToggleButton'
+
 import styles from './Nav.css'
 const cx = classnames.bind(styles)
 
@@ -25,10 +27,13 @@ class Nav extends React.Component {
       <ClickOutside onClickOutside={this.closeNav}>
         <div className={cx('nav', { open: this.state.navOpened })}>
           <div className={styles.strip} onClick={this.toggleNav}>
-            bar
+            <ToggleButton showClose={this.state.navOpened} />
+            <span className={styles.slogan}>
+              <strong>T.C.:</strong> A personal thoughts catcher based on Telegram Channel.
+            </span>
           </div>
           <div className={styles.bg}>
-            bg
+            tags & extra content
           </div>
         </div>
       </ClickOutside>

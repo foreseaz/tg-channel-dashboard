@@ -1,7 +1,7 @@
 :root {
-  --strip-width: 40px;
+  --strip-width: 50px;
   --navWidth: 360px;
-  --hideWidth: 320px;
+  --hideWidth: 310px;
 }
 .nav {
   position: fixed;
@@ -12,7 +12,7 @@
 
   text-align: center;
   font-size: 14px;
-  background-color: var(--mainColor);
+  background-color: var(--darkBlue);
   color: #fff;
   width: var(--navWidth);
   max-width: calc(100vw);
@@ -30,9 +30,32 @@
   width: var(--strip-width);
   position: absolute;
   cursor: pointer;
+  padding: 20px 16px;
   top: 0;
   left: 0;
   bottom: 0;
+
+  .slogan {
+    strong {
+      font-weight: 500;
+      margin-right: 5px;
+    }
+    display: block;
+    height: var(--strip-width);
+    width: 100vh;
+    line-height: var(--strip-width);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0 56px;
+
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: rotate(90deg) translateX(-50%) translateY(-50%);
+    transform-origin: 0 0;
+  }
 }
 .bg {
   background-color: #000;

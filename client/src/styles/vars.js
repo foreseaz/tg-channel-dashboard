@@ -34,6 +34,7 @@ const colors = {
 
   dark: '#4A4A4A',
   blue: '#08109f',
+  darkBlue: '#060b6f',
   grey: '#BCBEBC',
   red: '#DB4437',
   green: '#25A42F'
