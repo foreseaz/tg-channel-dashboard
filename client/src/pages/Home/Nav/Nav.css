@@ -1,0 +1,41 @@
+:root {
+  --strip-width: 40px;
+  --navWidth: 360px;
+  --hideWidth: 320px;
+}
+.nav {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  text-align: center;
+  font-size: 14px;
+  background-color: var(--mainColor);
+  color: #fff;
+  width: var(--navWidth);
+  max-width: calc(100vw);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  transition: transform .5s ease-in-out;
+  transform: translateX(var(--hideWidth));
+  &.open {
+    transform: translateX(0);
+  }
+}
+.strip {
+  width: var(--strip-width);
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+.bg {
+  background-color: #000;
+  margin-left: var(--strip-width);
+  height: 100%;
+}

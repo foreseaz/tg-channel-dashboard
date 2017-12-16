@@ -8,6 +8,7 @@ import { getMsgs } from '~/actions/Dashboard'
 import Logo from '~/assets/icons/logo.svg'
 import Page from '~/components/Page'
 import Msgs from './Msgs'
+import Nav from './Nav'
 
 import styles from './Home.css'
 import '~/styles/global/global.css'
@@ -21,6 +22,7 @@ class Home extends React.Component {
     const { msgs } = this.props
     return (
       <Page className={styles.container}>
+        <Nav />
         <div className={styles.logo}><Logo /></div>
         <h2 className={styles.intro}>
           T. is a minimalistic tool <br />
