@@ -22,7 +22,7 @@ class Home extends React.Component {
     const { msgs } = this.props
     return (
       <Page className={styles.container}>
-        <Nav />
+        <Nav msgs={msgs} />
         <div className={styles.logo}><Logo /></div>
         <h2 className={styles.intro}>
           T. is a minimalistic tool <br />

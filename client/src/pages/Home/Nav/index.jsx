@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames/bind'
 import ClickOutside from 'react-click-outside'
+import _union from 'lodash/union'
 
 import ToggleButton from '~/components/ToggleButton'
 
@@ -20,6 +21,15 @@ class Nav extends React.Component {
     this.closeNav = () => {
       this.setState({ navOpened: false })
     }
+    this.getAllTypes = () => {
+      const { msgs } = this.props
+      let allTypes = []
+      msgs.forEach(msg => {
+        allTypes = _union(allTypes, msg.tags)
+      })
+      console.log(allTypes)
+      return allTypes
+    }
   }
 
   render () {
@@ -33,7 +43,18 @@ class Nav extends React.Component {
             </span>
           </div>
           <div className={styles.bg}>
-            tags & extra content
+            <section>
+              <h4>Filter By Type</h4>
+              <ul>
+                {
+                  this.getAllTypes().map((type, idx) => (
+                    <li key={idx} className={styles.type}>
+                      <a className={styles.tag}>{type}</a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </section>
           </div>
         </div>
       </ClickOutside>
