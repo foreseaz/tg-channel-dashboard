@@ -6,7 +6,7 @@ import styles from './Card.css'
 const Card = ({ createdDate, img, text, tags }) => (
   <div className={styles.card}>
     <div className={styles.breadcrumbs}>
-      • <a href='/'>{_format(new Date(createdDate), 'YYYY-MM-DD')}</a> >
+      • {_format(new Date(createdDate), 'YYYY-MM-DD hh:mmaa')} >
     </div>
     {
       img &&
