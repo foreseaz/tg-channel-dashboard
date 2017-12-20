@@ -49,7 +49,7 @@ class Nav extends React.Component {
                 {
                   this.getAllTypes().map((type, idx) => (
                     <li key={idx} className={styles.type}>
-                      <a className={styles.tag}>{type}</a>
+                      <a className={cx('tag', 'blue')}>{type}</a>
                     </li>
                   ))
                 }
