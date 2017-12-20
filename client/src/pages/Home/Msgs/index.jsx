@@ -3,6 +3,7 @@ import Autolinker from 'autolinker'
 import _get from 'lodash/get'
 
 import Card from '~/components/Card'
+import Spinner from '~/assets/icons/spinner.svg'
 import styles from './Msgs.css'
 
 const getCleanText = (text) => {
@@ -14,6 +15,9 @@ const getCleanText = (text) => {
 
 const Msgs = ({ msgs }) => (
   <div className={styles.wrapper}>
+    <div>
+      {msgs.length === 0 && <Spinner />}
+    </div>
     {msgs && msgs.map((msg, idx) => (
       <Card
         key={idx}
