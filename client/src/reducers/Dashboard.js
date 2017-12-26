@@ -1,8 +1,11 @@
 import * as ACTION_TYPES from '~/actions/types'
+import _uniq from 'lodash/uniq'
 
 const initialState = {
   isFetching: false,
-  msgs: []
+  msgs: [],
+  tags: [],
+  filteredMsgs: []
 }
 
 export default (state = initialState, action) => {
@@ -21,6 +24,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetching: false
+      }
+    case ACTION_TYPES.ADD_TAG:
+      return {
+        ...state,
+        tags: _uniq(state.tags.concat(action.tag))
       }
     default:
       return state

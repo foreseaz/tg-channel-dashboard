@@ -3,6 +3,9 @@ import classnames from 'classnames/bind'
 import ClickOutside from 'react-click-outside'
 import _union from 'lodash/union'
 
+import { connect } from 'react-redux'
+import { addTag } from '~/actions/Dashboard'
+
 import ToggleButton from '~/components/ToggleButton'
 
 import styles from './Nav.css'
@@ -27,8 +30,11 @@ class Nav extends React.Component {
       msgs.forEach(msg => {
         allTypes = _union(allTypes, msg.tags)
       })
-      console.log(allTypes)
       return allTypes
+    }
+    this.tagClickHandler = (tag) => {
+      console.log('----', tag)
+      this.props.addTag(tag)
     }
   }
 
@@ -47,9 +53,9 @@ class Nav extends React.Component {
               <h4>Filter By Type</h4>
               <ul>
                 {
-                  this.getAllTypes().map((type, idx) => (
-                    <li key={idx} className={styles.type}>
-                      <a className={cx('tag', 'blue')}>{type}</a>
+                  this.getAllTypes().map((tag, idx) => (
+                    <li key={idx} className={styles.type} onClick={() => this.tagClickHandler(tag)}>
+                      <a className={cx('tag', 'blue')}>{tag}</a>
                     </li>
                   ))
                 }
@@ -62,4 +68,11 @@ class Nav extends React.Component {
   }
 }
 
-export default Nav
+const mapStateToProps = state => ({
+  filteredMsgs: state.dashboard.msgs
+})
+const mapDispatchToProps = {
+  addTag
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav)
