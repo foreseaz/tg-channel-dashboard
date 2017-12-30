@@ -1,8 +1,7 @@
 .card {
   position: relative;
-  width: 320px;
+  width: inherit;
   background: white;
-  margin: 20px;
   padding: 15px 15px 30px;
   /*border: 1px solid var(--blue);*/
   word-break: break-all;
