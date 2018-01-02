@@ -4,7 +4,6 @@
   background: white;
   padding: 15px 15px 30px;
   /*border: 1px solid var(--blue);*/
-  word-break: break-all;
 
   @media(--s) {
     max-width: 100%;
@@ -12,6 +11,7 @@
   }
 
   a {
+    word-break: break-all;
     font-family: var(--consoleFont);
     font-weight: 400;
     font-size: 12px;

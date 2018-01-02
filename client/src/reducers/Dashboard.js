@@ -3,6 +3,7 @@ import _uniq from 'lodash/uniq'
 
 const initialState = {
   isFetching: false,
+  isModalOpen: false,
   msgs: [],
   tags: [],
   filteredMsgs: []
@@ -29,6 +30,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         tags: _uniq(state.tags.concat(action.tag))
+      }
+    case ACTION_TYPES.OPEN_MODAL:
+      return {
+        ...state,
+        isModalOpen: true
+      }
+    case ACTION_TYPES.CLOSE_MODAL:
+      return {
+        ...state,
+        isModalOpen: false
       }
     default:
       return state
