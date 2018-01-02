@@ -1,7 +1,7 @@
 .container {
   position: relative;
   padding: 20px 30px;
-  width: 360px;
+  max-width: 90vw;
 }
 .logout {
   margin-top: 15px;

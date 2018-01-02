@@ -31,6 +31,7 @@ const colors = {
   buttonHoverColor: '#195BBF',
   actionColor: '#F5A623',
   actionHoverColor: '#FEBD52',
+  lineColor: '#EEEEEE',
 
   dark: '#4A4A4A',
   blue: '#08109f',

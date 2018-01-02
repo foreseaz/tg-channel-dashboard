@@ -1,5 +1,6 @@
 import Cookies from 'universal-cookie'
 import Autolinker from 'autolinker'
+import _format from 'date-fns/format'
 import _get from 'lodash/get'
 export const isBrowser = typeof window !== 'undefined'
 
@@ -34,3 +35,7 @@ export const getCleanText = (text) => {
 
   return Autolinker.link(withoutTags)
 }
+
+export const formatDate = (date, formart = 'YYYY-MM-DD') => (
+  _format(date, formart)
+)

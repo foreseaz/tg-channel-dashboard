@@ -25,7 +25,6 @@ class Home extends React.Component {
     return (
       <Page className={styles.container}>
         <Nav msgs={msgs} />
-        <button onClick={this.props.openModal}>Open</button>
         <AirLine />
         <div className={styles.logo}><Logo /></div>
         <h2 className={styles.intro}>
