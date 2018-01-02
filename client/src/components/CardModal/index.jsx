@@ -2,9 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { openModal, closeModal } from '~/actions/Dashboard'
+import { currentMsgSelector } from './_selector.js'
 
 import CloseIcon from '~/assets/icons/close.svg'
 import Modal from '~/components/Modal'
+import Detail from './Detail'
 
 import styles from './CardModal.css'
 
@@ -15,6 +17,9 @@ class CardModal extends React.Component {
   }
 
   render () {
+    console.log('currentMsg', this.props.currentMsg)
+    const { currentMsg } = this.props
+
     return (
       <Modal
         modalIsOpen={this.props.isModalOpen}
@@ -23,11 +28,11 @@ class CardModal extends React.Component {
         <div className={styles.container}>
           <span
             className={styles.close}
-            onClick={this.props.closeLoginModal}
+            onClick={this.props.closeModal}
           >
             <CloseIcon />
           </span>
-          fooooooo
+          <Detail msg={currentMsg} />
         </div>
       </Modal>
     )
@@ -35,7 +40,9 @@ class CardModal extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  isModalOpen: state.dashboard.isModalOpen
+  currentMsg: currentMsgSelector(state),
+  isModalOpen: state.dashboard.isModalOpen,
+  currentMsgId: state.dashboard.currentMsgId
 })
 const mapDispatchToProps = {
   openModal,

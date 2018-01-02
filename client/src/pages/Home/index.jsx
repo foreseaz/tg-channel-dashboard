@@ -21,7 +21,7 @@ class Home extends React.Component {
   }
 
   render () {
-    const { msgs } = this.props
+    const { msgs, openModal } = this.props
     return (
       <Page className={styles.container}>
         <Nav msgs={msgs} />
@@ -33,7 +33,7 @@ class Home extends React.Component {
           for thoughts collection and management, <br />
           based on handy Telegram Channel.
         </h2>
-        {Msgs({ msgs })}
+        {Msgs({ msgs, openModal })}
 
         <CardModal />
       </Page>

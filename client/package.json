@@ -21,6 +21,7 @@
     "react-stack-grid": "^0.7.0",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1",
     "reset-css": "^2.2.1",
     "universal-cookie": "^2.1.2"
   },

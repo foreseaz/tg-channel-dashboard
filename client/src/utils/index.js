@@ -1,4 +1,5 @@
 import Cookies from 'universal-cookie'
+import Autolinker from 'autolinker'
 import _get from 'lodash/get'
 export const isBrowser = typeof window !== 'undefined'
 
@@ -25,4 +26,11 @@ export const getLanguage = () => {
     default:
       return 'en'
   }
+}
+
+export const getCleanText = (text) => {
+  if (!text) return ''
+  let withoutTags = text.replace(/\[(.*?)\]/g, '')
+
+  return Autolinker.link(withoutTags)
 }

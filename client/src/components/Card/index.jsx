@@ -3,10 +3,10 @@ import React from 'react'
 import _format from 'date-fns/format'
 import styles from './Card.css'
 
-const Card = ({ createdDate, img, text, tags }) => (
-  <div className={styles.card}>
+const Card = ({ _id, onCardClick, createdDate, img, text, tags }) => (
+  <div className={styles.card} onClick={() => onCardClick(_id)}>
     <div className={styles.breadcrumbs}>
-      • {_format(new Date(createdDate), 'YYYY-MM-DD hh:mmaa')} >
+      • {_format(new Date(createdDate), 'YYYY-MM-DD hh:mm aa')} >
     </div>
     {
       img &&

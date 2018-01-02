@@ -37,9 +37,10 @@ export const addTag = tag => (dispatch, getState) => {
   filterByTags(currentDash, dispatch)
 }
 
-export const openModal = () => (dispatch) => {
+export const openModal = (_id) => (dispatch) => {
   dispatch({
-    type: ACTION_TYPES.OPEN_MODAL
+    type: ACTION_TYPES.OPEN_MODAL,
+    _id
   })
 }
 

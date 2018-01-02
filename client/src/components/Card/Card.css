@@ -3,7 +3,12 @@
   width: inherit;
   background: white;
   padding: 15px 15px 30px;
-  /*border: 1px solid var(--blue);*/
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    transition: all .45s ease;
+  }
 
   @media(--s) {
     max-width: 100%;
