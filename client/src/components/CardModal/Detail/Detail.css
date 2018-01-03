@@ -16,7 +16,7 @@
     .leadImg {
       margin: 10px auto;
       display: block;
-      max-width: inherit;
+      max-width: 100%;
       padding: inherit;
     }
   }
