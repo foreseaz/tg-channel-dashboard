@@ -60,6 +60,9 @@
     display: flex;
     bottom: 5px;
     right: 5px;
+    padding: 5px;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
     font-size: 11px;
     font-family: var(--consoleFont);
     color: var(--mainColor);
