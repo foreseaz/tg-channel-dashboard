@@ -12,7 +12,6 @@
 
   text-align: center;
   font-size: 14px;
-  background-color: var(--darkBlue);
   color: #fff;
   width: var(--navWidth);
   max-width: calc(100vw);
@@ -24,6 +23,11 @@
   transform: translateX(var(--hideWidth));
   &.open {
     transform: translateX(0);
+  }
+
+  background-color: var(--darkBlue);
+  @media (--s) {
+    background-color: transparent;
   }
 }
 .strip {
@@ -55,6 +59,10 @@
     top: 50%;
     transform: rotate(90deg) translateX(-50%) translateY(-50%);
     transform-origin: 0 0;
+
+    @media (--s) {
+      display: none;
+    }
   }
 }
 .bg {

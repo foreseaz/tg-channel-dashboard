@@ -3,10 +3,14 @@
     width: 18px;
     display: block;
     height: 1px;
-    background-color: currentColor;
     margin-bottom: 3px;
     border-radius: 1px;
     transition: transform 0.5s, opacity 0.5s;
+
+    background-color: #fff;
+    @media (--s) {
+      background-color: var(--mainColor);
+    }
   }
   .bar:last-child {
     width: 14px;
@@ -27,4 +31,10 @@
     transform: translateY(15px);
     opacity: 0;
   }
+}
+.bright {
+  background-color: #fff;
+}
+.dark {
+  background-color: var(--mainColor);
 }

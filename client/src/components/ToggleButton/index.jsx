@@ -4,12 +4,12 @@ import classnames from 'classnames/bind'
 import styles from './ToggleButton.css'
 const cx = classnames.bind(styles)
 
-const ToggleButton = ({ showClose }) => (
+const ToggleButton = ({ showClose, color = 'bright' }) => (
   <label className={cx('toggle', { showClose })}>
-    <b className={styles.bar} />
-    <b className={styles.bar} />
-    <b className={styles.bar} />
-    <b className={styles.bar} />
+    <b className={cx('bar')} />
+    <b className={cx('bar')} />
+    <b className={cx('bar')} />
+    <b className={cx('bar')} />
   </label>
 )
 
