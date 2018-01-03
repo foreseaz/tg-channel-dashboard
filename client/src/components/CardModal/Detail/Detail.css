@@ -5,6 +5,13 @@
   .left {
     max-width: 300px;
     padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .content {
+      overflow: auto;
+    }
 
     .leadImg {
       margin: 10px auto;
@@ -84,7 +91,7 @@
 
   .main {
     padding: 10px;
-    font-size: 16px;
+    font-size: 13px;
     a {
       color: var(--actionColor);
       text-decoration: none;
