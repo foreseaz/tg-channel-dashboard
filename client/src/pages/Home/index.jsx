@@ -1,5 +1,6 @@
 import * as React from 'react'
 import _orderBy from 'lodash/orderBy'
+import noScroll from 'no-scroll'
 
 import { connect } from 'react-redux'
 import { getMsgs, openModal } from '~/actions/Dashboard'
@@ -21,6 +22,8 @@ class Home extends React.Component {
   }
 
   render () {
+    this.props.isModalOpen ? noScroll.on() : noScroll.off()
+
     const { msgs, openModal } = this.props
     return (
       <Page className={styles.container}>
@@ -42,6 +45,7 @@ class Home extends React.Component {
 
 const mapStateToProps = state => ({
   // msgs: state.dashboard.msgs,
+  isModalOpen: state.dashboard.isModalOpen,
   msgs: _orderBy(state.dashboard.msgs, ['created_date'], ['desc'])
 })
 const mapDispatchToProps = {
