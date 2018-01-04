@@ -25,7 +25,7 @@ const Detail = ({ msg }) => {
             <div className={styles.main} dangerouslySetInnerHTML={{__html: getCleanText(msg.raw.text)}} />
           </div>
           <ul className={styles.tags}>
-            {msg.tags.map(tag => <Tag text={tag} onTagClick={onTagClick} />)}
+            {msg.tags.map(tag => <Tag key={tag} text={tag} onTagClick={onTagClick} />)}
           </ul>
         </div>
         {
