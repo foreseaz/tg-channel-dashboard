@@ -24,7 +24,9 @@ const Detail = ({ msg }) => {
             { imgSrc && <img className={styles.leadImg} src={imgSrc} alt='lead-img' /> }
             <div className={styles.main} dangerouslySetInnerHTML={{__html: getCleanText(msg.raw.text)}} />
           </div>
-          <ul>{msg.tags.map(tag => <Tag text={tag} onTagClick={onTagClick} />)}</ul>
+          <ul className={styles.tags}>
+            {msg.tags.map(tag => <Tag text={tag} onTagClick={onTagClick} />)}
+          </ul>
         </div>
         {
           markContent &&
