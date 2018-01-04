@@ -2,6 +2,7 @@ import React from 'react'
 import classnames from 'classnames/bind'
 import ClickOutside from 'react-click-outside'
 import _union from 'lodash/union'
+import _compact from 'lodash/compact'
 
 import { connect } from 'react-redux'
 import { addTag } from '~/actions/Dashboard'
@@ -30,10 +31,9 @@ class Nav extends React.Component {
       msgs.forEach(msg => {
         allTypes = _union(allTypes, msg.tags)
       })
-      return allTypes
+      return _compact(allTypes)
     }
     this.tagClickHandler = (tag) => {
-      console.log('----', tag)
       this.props.addTag(tag)
     }
   }

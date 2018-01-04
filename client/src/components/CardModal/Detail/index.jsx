@@ -10,6 +10,9 @@ import styles from './Detail.css'
 const Detail = ({ msg }) => {
   const imgSrc = _get(msg, 'preview.mercury.lead_image_url')
   const markContent = _get(msg, 'preview.mark.text')
+  const author = _get(msg, 'preview.mark.author')
+  const date = _get(msg, 'preview.mark.date')
+
   const onTagClick = () => ({})
 
   return (
@@ -27,8 +30,8 @@ const Detail = ({ msg }) => {
           markContent &&
           <div className={styles.right}>
             <h3><a href={msg.preview.mark.url} alt='title'>{msg.preview.mark.title}</a></h3>
-            <div>Author: {msg.preview.mark.author}</div>
-            <div>Date: {formatDate(msg.preview.mark.date)}</div>
+            { author && <div>Author: {author}</div> }
+            { date && <div>Date: {formatDate(date)}</div> }
             {
               msg.preview.mark.keywords &&
               <div>{msg.preview.mark.keywords}</div>
