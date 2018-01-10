@@ -101,6 +101,18 @@
         margin-left: 5px;
         font-size: 11px;
         transition: opacity 0.2s;
+
+        span {
+          background: #eaeaea;
+          line-height: 10px;
+          color: #5100ff;
+          max-width: 26px;
+          height: 12px;
+          padding: 1px 5px 0 4px;
+          margin-left: 3px;
+          border-radius: 7px;
+          display: inline-block;
+        }
       }
       .tag::before {
         content: "";

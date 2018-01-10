@@ -1,8 +1,7 @@
 import React from 'react'
 import classnames from 'classnames/bind'
 import ClickOutside from 'react-click-outside'
-import _union from 'lodash/union'
-import _compact from 'lodash/compact'
+import _orderBy from 'lodash/orderBy'
 
 import { connect } from 'react-redux'
 import { addTag } from '~/actions/Dashboard'
@@ -25,13 +24,22 @@ class Nav extends React.Component {
     this.closeNav = () => {
       this.setState({ navOpened: false })
     }
-    this.getAllTypes = () => {
+    this.getTypes = () => {
       const { msgs } = this.props
+
       let allTypes = []
       msgs.forEach(msg => {
-        allTypes = _union(allTypes, msg.tags)
+        allTypes = allTypes.concat(msg.tags)
       })
-      return _compact(allTypes)
+
+      let typeCounts = allTypes.reduce((prev, curr) => {
+        if (curr) prev[curr] = (prev[curr] || 0) + 1
+        return prev
+      }, {})
+
+      const types = Object.keys(typeCounts).map(type => ({ type: type, count: typeCounts[type] }))
+
+      return _orderBy(types, ['count'], ['desc'])
     }
     this.tagClickHandler = (tag) => {
       this.props.addTag(tag)
@@ -53,9 +61,12 @@ class Nav extends React.Component {
               <h4>Filter By Type</h4>
               <ul>
                 {
-                  this.getAllTypes().map((tag, idx) => (
+                  this.getTypes().map((tag, idx) => (
                     <li key={idx} className={styles.type} onClick={() => this.tagClickHandler(tag)}>
-                      <a className={cx('tag', 'blue')}>{tag}</a>
+                      <a className={cx('tag', 'blue')}>
+                        {tag.type}
+                        <span>{tag.count}</span>
+                      </a>
                     </li>
                   ))
                 }
