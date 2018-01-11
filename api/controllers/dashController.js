@@ -15,9 +15,6 @@ const list_all_msgs = (req, res) => {
 }
 
 const create_a_msg = async (data) => {
-  console.log('---------------------------')
-  console.log('-------------incoming post', data)
-
   try {
     const new_msg = new Msg()
     new_msg.raw = data
@@ -35,12 +32,25 @@ const create_a_msg = async (data) => {
     const url = ctlHelper.extraUrl(text)
     new_msg.preview.url = url
     if (url) {
-      new_msg.preview.mercury = await ctlHelper.preparePreviewMercury(url)
-      new_msg.preview.mark = await ctlHelper.preparePreviewMark(url)
+      const mercury = await ctlHelper.preparePreviewMercury(url)
+      const mark = await ctlHelper.preparePreviewMark(url)
+
+      try {
+        new_msg.preview.mark = JSON.parse(JSON.stringify(mark))
+      } catch (e) {
+        console.error('MARK_ERROR:', new_msg)
+      }
+
+      try {
+        new_msg.preview.mark = JSON.parse(JSON.stringify(mark))
+      } catch (e) {
+        console.error('MERCURY_ERROR:', new_msg)
+      }
     }
 
     new_msg.save((e, msg) => {
       if (e) {
+        console.error('ERR: SAVE ERROR')
         throw(e)
       }
     })
@@ -50,12 +60,9 @@ const create_a_msg = async (data) => {
 }
 
 const update_a_msg = ({ edited_channel_post: data }) => {
-  console.log('---------------------------')
-  console.log('-------------update post', data)
-
   try {
     Msg.findOne({ message_id: data.message_id }, async (err, old_msg) => {
-      console.log('found', old_msg)
+      console.log('----- FOUND', old_msg)
       if (old_msg) {
         const chat = _.get(data, 'chat', {})
         const text = _.get(data, 'text', '')
@@ -69,8 +76,20 @@ const update_a_msg = ({ edited_channel_post: data }) => {
         const url = ctlHelper.extraUrl(text)
         old_msg.preview.url = url
         if (url) {
-          old_msg.preview.mercury = await ctlHelper.preparePreviewMercury(url)
-          old_msg.preview.mark = await ctlHelper.preparePreviewMark(url)
+          const mercury = await ctlHelper.preparePreviewMercury(url)
+          const mark = await ctlHelper.preparePreviewMark(url)
+
+          try {
+            old_msg.preview.mark = JSON.parse(JSON.stringify(mark))
+          } catch (e) {
+            console.error('MARK_ERROR:', old_msg)
+          }
+
+          try {
+            old_msg.preview.mark = JSON.parse(JSON.stringify(mark))
+          } catch (e) {
+            console.error('MERCURY_ERROR:', old_msg)
+          }
         }
 
         old_msg.save((e, old_msg) => {
@@ -81,6 +100,7 @@ const update_a_msg = ({ edited_channel_post: data }) => {
       }
     })
   } catch (e) {
+    console.error('ERR: UPDATE_MSG_ERR')
     throw(e)
   }
 }
