@@ -4,9 +4,16 @@ const nodeMercuryParser = require('node-mercury-parser')
 nodeMercuryParser.init('Skeosh2Uy3TeMxKeURfJKLxqN68suE3Wy9CVm3wf')
 
 const extraTags = (text) => {
-  if (!text) return text
+  if (!text) return ['untagged']
   const extractedTags = text.match(/\[(.*?)\]/g) // ['[Design]', '[Code]', ...]
   const tags = extractedTags && extractedTags.map(t => t.replace(/[\[ | \]]/g, '').toLowerCase()) // ['design', 'code', ...]
+  return tags.length > 0 ? tags : ['untagged']
+}
+
+const extractHashtags = (text) => {
+  if (!text) return ['untagged']
+  const extractedTags = text.match(/\#(.*?)\ /g) // ['#tag ', '#foo ']
+  const tags = extractedTags && extractedTags.map(t => t.replace(/[# ]/g, ''))
   return tags.length > 0 ? tags : ['untagged']
 }
 
@@ -26,6 +33,7 @@ const preparePreviewMark = async (url) => {
 }
 
 exports.extraTags = extraTags
+exports.extractHashtags = extractHashtags
 exports.extraUrl = extraUrl
 exports.preparePreviewMercury = preparePreviewMercury
 exports.preparePreviewMark = preparePreviewMark

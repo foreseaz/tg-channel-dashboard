@@ -32,6 +32,11 @@ export default (state = initialState, action) => {
         ...state,
         tags: _uniq(state.tags.concat(action.tag))
       }
+    case ACTION_TYPES.SET_CURRENT_ID:
+      return {
+        ...state,
+        currentMsgId: action._id
+      }
     case ACTION_TYPES.OPEN_MODAL:
       return {
         ...state,

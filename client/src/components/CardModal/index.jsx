@@ -1,10 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { openModal, closeModal } from '~/actions/Dashboard'
-import { currentMsgSelector } from './_selector.js'
+import { currentMsgSelector } from '~/reducers/selector.js'
 
 import CloseIcon from '~/assets/icons/close.svg'
+import EditIcon from '~/assets/icons/edit.svg'
 import Modal from '~/components/Modal'
 import Detail from './Detail'
 
@@ -18,7 +20,7 @@ class CardModal extends React.Component {
 
   render () {
     console.log('currentMsg', this.props.currentMsg)
-    const { currentMsg } = this.props
+    const { currentMsg, currentMsgId } = this.props
 
     return (
       <Modal
@@ -33,6 +35,11 @@ class CardModal extends React.Component {
             <CloseIcon />
           </span>
           <Detail msg={currentMsg} />
+          <Link to={`/edit/${currentMsgId}`}>
+            <span className={styles.edit}>
+              <EditIcon />
+            </span>
+          </Link>
         </div>
       </Modal>
     )

@@ -25,7 +25,7 @@ const create_a_msg = async (data) => {
     new_msg.chat_id = chat.id
 
     const text = _.get(data, 'text', '')
-    const tags = ctlHelper.extraTags(text)
+    const tags = ctlHelper.extractHashtags(text)
     new_msg.tags = tags
 
     // previews
@@ -67,7 +67,7 @@ const update_a_msg = ({ edited_channel_post: data }) => {
         const chat = _.get(data, 'chat', {})
         const text = _.get(data, 'text', '')
 
-        old_msg.tags = ctlHelper.extraTags(text)
+        old_msg.tags = ctlHelper.extractHashtags(text)
         old_msg.raw = data
         old_msg.username = chat.username
         old_msg.chat_id = chat.id

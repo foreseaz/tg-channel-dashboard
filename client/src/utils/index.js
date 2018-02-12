@@ -1,3 +1,4 @@
+/* eslint no-useless-escape: 0 */
 import Cookies from 'universal-cookie'
 import Autolinker from 'autolinker'
 import _format from 'date-fns/format'
@@ -31,7 +32,7 @@ export const getLanguage = () => {
 
 export const getCleanText = (text) => {
   if (!text) return ''
-  let withoutTags = text.replace(/\[(.*?)\]/g, '')
+  let withoutTags = text.replace(/\#(.*?)\ /g, '')
 
   return Autolinker.link(withoutTags)
 }

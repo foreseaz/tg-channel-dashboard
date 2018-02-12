@@ -49,3 +49,10 @@ export const closeModal = () => (dispatch) => {
     type: ACTION_TYPES.CLOSE_MODAL
   })
 }
+
+export const setCurrentId = (id) => dispatch => {
+  dispatch({
+    type: ACTION_TYPES.SET_CURRENT_ID,
+    _id: id
+  })
+}
