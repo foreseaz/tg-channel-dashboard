@@ -9,8 +9,7 @@ const list_all_msgs = (req, res) => {
     if (err) {
       res.send(err)
     }
-    const withoutDeletedMsgs = _.filter(msgs, msg => { return !_.includes(msg.tags, 'deleted') })
-    res.json(withoutDeletedMsgs)
+    res.json(msgs)
   })
 }
 
@@ -28,9 +27,17 @@ const create_a_msg = async (data) => {
     const tags = ctlHelper.extractHashtags(text)
     new_msg.tags = tags
 
-    // previews
+    // save msg first
     const url = ctlHelper.extraUrl(text)
     new_msg.preview.url = url
+    new_msg.save((e, msg) => {
+      if (e) {
+        console.error('ERR: SAVE ERROR')
+        throw(e)
+      }
+    })
+
+    // crawl previews
     if (url) {
       const mercury = await ctlHelper.preparePreviewMercury(url)
       const mark = await ctlHelper.preparePreviewMark(url)
@@ -46,14 +53,15 @@ const create_a_msg = async (data) => {
       } catch (e) {
         console.error('MERCURY_ERROR:', new_msg)
       }
-    }
 
-    new_msg.save((e, msg) => {
-      if (e) {
-        console.error('ERR: SAVE ERROR')
-        throw(e)
-      }
-    })
+      // update msg
+      new_msg.save((e, msg) => {
+        if (e) {
+          console.error('ERR: SAVE ERROR')
+          throw(e)
+        }
+      })
+    }
   } catch (e) {
     throw(e)
   }

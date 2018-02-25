@@ -32,7 +32,7 @@ export const getLanguage = () => {
 
 export const getCleanText = (text) => {
   if (!text) return ''
-  let withoutTags = text.replace(/\#(.*?)\ /g, '')
+  let withoutTags = text.replace(/\#(.*?)\ |\[(.*?)\]/g, '')
 
   return Autolinker.link(withoutTags)
 }
